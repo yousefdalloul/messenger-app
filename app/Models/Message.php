@@ -34,17 +34,5 @@ class Message extends Model
             ]);
     }
 
-    public function sentMessages()
-    {
-        return $this->hasMany(Message::class,'user_id','id');
-    }
-
-    public function receiveMessages()
-    {
-        return $this->belongsToMany(Message::class,'recipients')
-            ->withPivot([
-                'read_at','deleted_at'
-            ]);
-    }
 
 }
