@@ -82,6 +82,8 @@ class MessagesController extends Controller
 
         DB::commit();
 
+        broadcast(new MessagesController($message));
+
     } catch (Throwable $e) {
             DB::rollBack();
 
